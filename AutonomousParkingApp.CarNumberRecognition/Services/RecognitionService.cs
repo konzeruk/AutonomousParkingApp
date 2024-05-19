@@ -1,4 +1,5 @@
-﻿using AutonomousParkingApp.CarNumberRecognition.Models;
+﻿using AutonomousParkingApp.CarNumberRecognition.Exceptions;
+using AutonomousParkingApp.CarNumberRecognition.Models;
 using AutonomousParkingApp.CarNumberRecognition.Services.Contracts;
 using Python.Runtime;
 
@@ -6,13 +7,23 @@ namespace AutonomousParkingApp.CarNumberRecognition.Services;
 
 public class RecognitionService : IRecognitionService
 {
-    public const string scriptName = "PyNumberRecognition.py";
+    public const string scriptName = @"D:\Code\AutonomousParkingApp\PyNumberRecognition\PyNumberRecognition.py";
     public const string get_number_car = nameof(get_number_car);
 
     public RecognitionService()
     {
-        Runtime.PythonDLL = @"C:\Users\konze\anaconda3\python311.dll";
-        PythonEngine.Initialize();
+        try
+        {
+            // Runtime.PythonDLL = @"C:\Users\konze\anaconda3\python311.dll";
+            Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", @"C:\Users\konze\anaconda3\python311.dll");
+            Environment.SetEnvironmentVariable("PYTHONHOME", @"C:\Users\konze\anaconda3");
+            PythonEngine.Initialize();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            Console.WriteLine(ex.StackTrace);
+        }
     }
 
     public CarNumberDto GetCarNumberByImageAsync(ImageDto image)
@@ -21,17 +32,17 @@ public class RecognitionService : IRecognitionService
         {
             var pythonScript = Py.Import(scriptName);
 
-            dynamic np = Py.Import("numpy");
+            var result = (pythonScript.InvokeMethod(get_number_car, new PyObject[] { image.Image.ToPython() })).ToString();
 
-            var arg = 
+            PythonEngine.Shutdown();
 
+            if (string.IsNullOrEmpty(result))
+                throw new NumbersNotRecognitionException(new Dictionary<string, object> { { nameof(image), image } });
 
-
-            var result = pythonScript.InvokeMethod(get_number_car, new PyObject {image.Image});
-
-
+            return new CarNumberDto
+            {
+                CarNumber = result.ToString()!
+            };
         }
     }
-
-    private PyList ArrayByteToPyList
 }
