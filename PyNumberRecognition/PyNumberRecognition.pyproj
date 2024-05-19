@@ -1,0 +1,278 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>7676addd-4adb-428a-818c-9b7675a40495</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>PyNumberRecognition.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>PyNumberRecognition</Name>
+    <RootNamespace>PyNumberRecognition</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.11</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="NNSegmentation.py" />
+    <Compile Include="PyIN.py" />
+    <Compile Include="PyNumberRecognition.py" />
+    <Compile Include="yolov5\benchmarks.py" />
+    <Compile Include="yolov5\classify\predict.py" />
+    <Compile Include="yolov5\classify\train.py" />
+    <Compile Include="yolov5\classify\val.py" />
+    <Compile Include="yolov5\detect.py" />
+    <Compile Include="yolov5\export.py" />
+    <Compile Include="yolov5\hubconf.py" />
+    <Compile Include="yolov5\models\common.py" />
+    <Compile Include="yolov5\models\experimental.py" />
+    <Compile Include="yolov5\models\tf.py" />
+    <Compile Include="yolov5\models\yolo.py" />
+    <Compile Include="yolov5\models\__init__.py" />
+    <Compile Include="yolov5\segment\predict.py" />
+    <Compile Include="yolov5\segment\train.py" />
+    <Compile Include="yolov5\segment\val.py" />
+    <Compile Include="yolov5\train.py" />
+    <Compile Include="yolov5\utils\activations.py" />
+    <Compile Include="yolov5\utils\augmentations.py" />
+    <Compile Include="yolov5\utils\autoanchor.py" />
+    <Compile Include="yolov5\utils\autobatch.py" />
+    <Compile Include="yolov5\utils\aws\resume.py" />
+    <Compile Include="yolov5\utils\aws\__init__.py" />
+    <Compile Include="yolov5\utils\callbacks.py" />
+    <Compile Include="yolov5\utils\dataloaders.py" />
+    <Compile Include="yolov5\utils\downloads.py" />
+    <Compile Include="yolov5\utils\flask_rest_api\example_request.py" />
+    <Compile Include="yolov5\utils\flask_rest_api\restapi.py" />
+    <Compile Include="yolov5\utils\general.py" />
+    <Compile Include="yolov5\utils\loggers\clearml\clearml_utils.py" />
+    <Compile Include="yolov5\utils\loggers\clearml\hpo.py" />
+    <Compile Include="yolov5\utils\loggers\clearml\__init__.py" />
+    <Compile Include="yolov5\utils\loggers\comet\comet_utils.py" />
+    <Compile Include="yolov5\utils\loggers\comet\hpo.py" />
+    <Compile Include="yolov5\utils\loggers\comet\__init__.py" />
+    <Compile Include="yolov5\utils\loggers\wandb\wandb_utils.py" />
+    <Compile Include="yolov5\utils\loggers\wandb\__init__.py" />
+    <Compile Include="yolov5\utils\loggers\__init__.py" />
+    <Compile Include="yolov5\utils\loss.py" />
+    <Compile Include="yolov5\utils\metrics.py" />
+    <Compile Include="yolov5\utils\plots.py" />
+    <Compile Include="yolov5\utils\segment\augmentations.py" />
+    <Compile Include="yolov5\utils\segment\dataloaders.py" />
+    <Compile Include="yolov5\utils\segment\general.py" />
+    <Compile Include="yolov5\utils\segment\loss.py" />
+    <Compile Include="yolov5\utils\segment\metrics.py" />
+    <Compile Include="yolov5\utils\segment\plots.py" />
+    <Compile Include="yolov5\utils\segment\__init__.py" />
+    <Compile Include="yolov5\utils\torch_utils.py" />
+    <Compile Include="yolov5\utils\triton.py" />
+    <Compile Include="yolov5\utils\__init__.py" />
+    <Compile Include="yolov5\val.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="yolov5\" />
+    <Folder Include="yolov5\.github\" />
+    <Folder Include="yolov5\.github\ISSUE_TEMPLATE\" />
+    <Folder Include="yolov5\.github\workflows\" />
+    <Folder Include="yolov5\.git\" />
+    <Folder Include="yolov5\.git\hooks\" />
+    <Folder Include="yolov5\.git\info\" />
+    <Folder Include="yolov5\.git\logs\" />
+    <Folder Include="yolov5\.git\logs\refs\" />
+    <Folder Include="yolov5\.git\logs\refs\heads\" />
+    <Folder Include="yolov5\.git\logs\refs\remotes\" />
+    <Folder Include="yolov5\.git\logs\refs\remotes\origin\" />
+    <Folder Include="yolov5\.git\objects\" />
+    <Folder Include="yolov5\.git\objects\info\" />
+    <Folder Include="yolov5\.git\objects\pack\" />
+    <Folder Include="yolov5\.git\refs\" />
+    <Folder Include="yolov5\.git\refs\heads\" />
+    <Folder Include="yolov5\.git\refs\remotes\" />
+    <Folder Include="yolov5\.git\refs\remotes\origin\" />
+    <Folder Include="yolov5\.git\refs\tags\" />
+    <Folder Include="yolov5\classify\" />
+    <Folder Include="yolov5\data\" />
+    <Folder Include="yolov5\data\hyps\" />
+    <Folder Include="yolov5\data\images\" />
+    <Folder Include="yolov5\data\scripts\" />
+    <Folder Include="yolov5\models\" />
+    <Folder Include="yolov5\models\hub\" />
+    <Folder Include="yolov5\models\segment\" />
+    <Folder Include="yolov5\models\__pycache__\" />
+    <Folder Include="yolov5\segment\" />
+    <Folder Include="yolov5\utils\" />
+    <Folder Include="yolov5\utils\aws\" />
+    <Folder Include="yolov5\utils\docker\" />
+    <Folder Include="yolov5\utils\flask_rest_api\" />
+    <Folder Include="yolov5\utils\google_app_engine\" />
+    <Folder Include="yolov5\utils\loggers\" />
+    <Folder Include="yolov5\utils\loggers\clearml\" />
+    <Folder Include="yolov5\utils\loggers\comet\" />
+    <Folder Include="yolov5\utils\loggers\wandb\" />
+    <Folder Include="yolov5\utils\segment\" />
+    <Folder Include="yolov5\utils\__pycache__\" />
+    <Folder Include="yolov5\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="yolov5\.dockerignore" />
+    <Content Include="yolov5\.gitattributes" />
+    <Content Include="yolov5\.github\dependabot.yml" />
+    <Content Include="yolov5\.github\ISSUE_TEMPLATE\bug-report.yml" />
+    <Content Include="yolov5\.github\ISSUE_TEMPLATE\config.yml" />
+    <Content Include="yolov5\.github\ISSUE_TEMPLATE\feature-request.yml" />
+    <Content Include="yolov5\.github\ISSUE_TEMPLATE\question.yml" />
+    <Content Include="yolov5\.github\workflows\ci-testing.yml" />
+    <Content Include="yolov5\.github\workflows\cla.yml" />
+    <Content Include="yolov5\.github\workflows\codeql-analysis.yml" />
+    <Content Include="yolov5\.github\workflows\docker.yml" />
+    <Content Include="yolov5\.github\workflows\format.yml" />
+    <Content Include="yolov5\.github\workflows\greetings.yml" />
+    <Content Include="yolov5\.github\workflows\links.yml" />
+    <Content Include="yolov5\.github\workflows\merge-main-into-prs.yml" />
+    <Content Include="yolov5\.github\workflows\stale.yml" />
+    <Content Include="yolov5\.gitignore" />
+    <Content Include="yolov5\.git\config" />
+    <Content Include="yolov5\.git\description" />
+    <Content Include="yolov5\.git\HEAD" />
+    <Content Include="yolov5\.git\hooks\applypatch-msg.sample" />
+    <Content Include="yolov5\.git\hooks\commit-msg.sample" />
+    <Content Include="yolov5\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="yolov5\.git\hooks\post-update.sample" />
+    <Content Include="yolov5\.git\hooks\pre-applypatch.sample" />
+    <Content Include="yolov5\.git\hooks\pre-commit.sample" />
+    <Content Include="yolov5\.git\hooks\pre-merge-commit.sample" />
+    <Content Include="yolov5\.git\hooks\pre-push.sample" />
+    <Content Include="yolov5\.git\hooks\pre-rebase.sample" />
+    <Content Include="yolov5\.git\hooks\pre-receive.sample" />
+    <Content Include="yolov5\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="yolov5\.git\hooks\push-to-checkout.sample" />
+    <Content Include="yolov5\.git\hooks\sendemail-validate.sample" />
+    <Content Include="yolov5\.git\hooks\update.sample" />
+    <Content Include="yolov5\.git\index" />
+    <Content Include="yolov5\.git\info\exclude" />
+    <Content Include="yolov5\.git\logs\HEAD" />
+    <Content Include="yolov5\.git\logs\refs\heads\master" />
+    <Content Include="yolov5\.git\logs\refs\remotes\origin\HEAD" />
+    <Content Include="yolov5\.git\objects\pack\pack-d5bc8f5014addba5543e8221616b5e969b8009ba.idx" />
+    <Content Include="yolov5\.git\objects\pack\pack-d5bc8f5014addba5543e8221616b5e969b8009ba.pack" />
+    <Content Include="yolov5\.git\objects\pack\pack-d5bc8f5014addba5543e8221616b5e969b8009ba.rev" />
+    <Content Include="yolov5\.git\packed-refs" />
+    <Content Include="yolov5\.git\refs\heads\master" />
+    <Content Include="yolov5\.git\refs\remotes\origin\HEAD" />
+    <Content Include="yolov5\CITATION.cff" />
+    <Content Include="yolov5\classify\tutorial.ipynb" />
+    <Content Include="yolov5\CONTRIBUTING.md" />
+    <Content Include="yolov5\data\Argoverse.yaml" />
+    <Content Include="yolov5\data\coco.yaml" />
+    <Content Include="yolov5\data\coco128-seg.yaml" />
+    <Content Include="yolov5\data\coco128.yaml" />
+    <Content Include="yolov5\data\GlobalWheat2020.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.no-augmentation.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.Objects365.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.scratch-high.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.scratch-low.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.scratch-med.yaml" />
+    <Content Include="yolov5\data\hyps\hyp.VOC.yaml" />
+    <Content Include="yolov5\data\ImageNet.yaml" />
+    <Content Include="yolov5\data\ImageNet10.yaml" />
+    <Content Include="yolov5\data\ImageNet100.yaml" />
+    <Content Include="yolov5\data\ImageNet1000.yaml" />
+    <Content Include="yolov5\data\images\bus.jpg" />
+    <Content Include="yolov5\data\images\zidane.jpg" />
+    <Content Include="yolov5\data\Objects365.yaml" />
+    <Content Include="yolov5\data\scripts\download_weights.sh" />
+    <Content Include="yolov5\data\scripts\get_coco.sh" />
+    <Content Include="yolov5\data\scripts\get_coco128.sh" />
+    <Content Include="yolov5\data\scripts\get_imagenet.sh" />
+    <Content Include="yolov5\data\scripts\get_imagenet10.sh" />
+    <Content Include="yolov5\data\scripts\get_imagenet100.sh" />
+    <Content Include="yolov5\data\scripts\get_imagenet1000.sh" />
+    <Content Include="yolov5\data\SKU-110K.yaml" />
+    <Content Include="yolov5\data\VisDrone.yaml" />
+    <Content Include="yolov5\data\VOC.yaml" />
+    <Content Include="yolov5\data\xView.yaml" />
+    <Content Include="yolov5\LICENSE" />
+    <Content Include="yolov5\models\hub\anchors.yaml" />
+    <Content Include="yolov5\models\hub\yolov3-spp.yaml" />
+    <Content Include="yolov5\models\hub\yolov3-tiny.yaml" />
+    <Content Include="yolov5\models\hub\yolov3.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-bifpn.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-fpn.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-p2.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-p34.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-p6.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-p7.yaml" />
+    <Content Include="yolov5\models\hub\yolov5-panet.yaml" />
+    <Content Include="yolov5\models\hub\yolov5l6.yaml" />
+    <Content Include="yolov5\models\hub\yolov5m6.yaml" />
+    <Content Include="yolov5\models\hub\yolov5n6.yaml" />
+    <Content Include="yolov5\models\hub\yolov5s-ghost.yaml" />
+    <Content Include="yolov5\models\hub\yolov5s-LeakyReLU.yaml" />
+    <Content Include="yolov5\models\hub\yolov5s-transformer.yaml" />
+    <Content Include="yolov5\models\hub\yolov5s6.yaml" />
+    <Content Include="yolov5\models\hub\yolov5x6.yaml" />
+    <Content Include="yolov5\models\segment\yolov5l-seg.yaml" />
+    <Content Include="yolov5\models\segment\yolov5m-seg.yaml" />
+    <Content Include="yolov5\models\segment\yolov5n-seg.yaml" />
+    <Content Include="yolov5\models\segment\yolov5s-seg.yaml" />
+    <Content Include="yolov5\models\segment\yolov5x-seg.yaml" />
+    <Content Include="yolov5\models\yolov5l.yaml" />
+    <Content Include="yolov5\models\yolov5m.yaml" />
+    <Content Include="yolov5\models\yolov5n.yaml" />
+    <Content Include="yolov5\models\yolov5s.yaml" />
+    <Content Include="yolov5\models\yolov5x.yaml" />
+    <Content Include="yolov5\models\__pycache__\common.cpython-311.pyc" />
+    <Content Include="yolov5\models\__pycache__\experimental.cpython-311.pyc" />
+    <Content Include="yolov5\models\__pycache__\yolo.cpython-311.pyc" />
+    <Content Include="yolov5\models\__pycache__\__init__.cpython-311.pyc" />
+    <Content Include="yolov5\pyproject.toml" />
+    <Content Include="yolov5\README.md" />
+    <Content Include="yolov5\README.zh-CN.md" />
+    <Content Include="yolov5\requirements.txt" />
+    <Content Include="yolov5\segment\tutorial.ipynb" />
+    <Content Include="yolov5\tutorial.ipynb" />
+    <Content Include="yolov5\utils\aws\mime.sh" />
+    <Content Include="yolov5\utils\aws\userdata.sh" />
+    <Content Include="yolov5\utils\docker\Dockerfile" />
+    <Content Include="yolov5\utils\docker\Dockerfile-arm64" />
+    <Content Include="yolov5\utils\docker\Dockerfile-cpu" />
+    <Content Include="yolov5\utils\flask_rest_api\README.md" />
+    <Content Include="yolov5\utils\google_app_engine\additional_requirements.txt" />
+    <Content Include="yolov5\utils\google_app_engine\app.yaml" />
+    <Content Include="yolov5\utils\google_app_engine\Dockerfile" />
+    <Content Include="yolov5\utils\loggers\clearml\README.md" />
+    <Content Include="yolov5\utils\loggers\comet\optimizer_config.json" />
+    <Content Include="yolov5\utils\loggers\comet\README.md" />
+    <Content Include="yolov5\utils\__pycache__\augmentations.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\autoanchor.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\dataloaders.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\downloads.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\general.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\metrics.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\plots.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\torch_utils.cpython-311.pyc" />
+    <Content Include="yolov5\utils\__pycache__\__init__.cpython-311.pyc" />
+    <Content Include="yolov5\__pycache__\export.cpython-311.pyc" />
+    <Content Include="yolov5\__pycache__\hubconf.cpython-311.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.11" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

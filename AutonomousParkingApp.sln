@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomousParkingApp", "AutonomousParkingApp\AutonomousParkingApp.csproj", "{D4077312-E4A3-41D2-B1B6-B50AE87FFEF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutonomousParkingApp.CarNumberRecognition", "AutonomousParkingApp.CarNumberRecognition\AutonomousParkingApp.CarNumberRecognition.csproj", "{D28CDF97-C64F-4A76-B5D6-E9071EE22CCC}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyNumberRecognition", "PyNumberRecognition\PyNumberRecognition.pyproj", "{7676ADDD-4ADB-428A-818C-9B7675A40495}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutonomousParkingApp.StorageCarNumbers", "AutonomousParkingApp.StorageCarNumbers\AutonomousParkingApp.StorageCarNumbers.csproj", "{77FD8558-BF2F-45FA-8E39-8527996E8CAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{91900E2E-BCCF-4B19-80F9-242313BC7A58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D4077312-E4A3-41D2-B1B6-B50AE87FFEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4077312-E4A3-41D2-B1B6-B50AE87FFEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4077312-E4A3-41D2-B1B6-B50AE87FFEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4077312-E4A3-41D2-B1B6-B50AE87FFEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28CDF97-C64F-4A76-B5D6-E9071EE22CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28CDF97-C64F-4A76-B5D6-E9071EE22CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28CDF97-C64F-4A76-B5D6-E9071EE22CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28CDF97-C64F-4A76-B5D6-E9071EE22CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7676ADDD-4ADB-428A-818C-9B7675A40495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7676ADDD-4ADB-428A-818C-9B7675A40495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FD8558-BF2F-45FA-8E39-8527996E8CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FD8558-BF2F-45FA-8E39-8527996E8CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FD8558-BF2F-45FA-8E39-8527996E8CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FD8558-BF2F-45FA-8E39-8527996E8CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91900E2E-BCCF-4B19-80F9-242313BC7A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91900E2E-BCCF-4B19-80F9-242313BC7A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91900E2E-BCCF-4B19-80F9-242313BC7A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91900E2E-BCCF-4B19-80F9-242313BC7A58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
