@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AutonomousParkingApp.Authentication\AutonomousParkingApp.Authentication.csproj" />
     <ProjectReference Include="..\AutonomousParkingApp.StorageCarNumbers\AutonomousParkingApp.StorageCarNumbers.csproj" />
   </ItemGroup>
 
