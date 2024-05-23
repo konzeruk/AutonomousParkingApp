@@ -15,4 +15,8 @@ public class ParkingEntity
     public int Price { get; set; }
 
     public int NumFreeSpaces { get; set; }
+
+    public int XCoord { get; set; }
+
+    public int YCoord { get; set; }
 }
