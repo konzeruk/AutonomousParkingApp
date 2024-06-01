@@ -4,13 +4,13 @@ namespace AutonomousParkingApp.Authentication.Services.Contracts;
 
 public interface IAuthService
 {
-    Task AddUserAsync(UserForAuthDto user);
+    Task AddUserAsync(RegDto user);
 
     Task UpdateUserAsync(UserDto user);
 
     Task<UserDto> GetUserByUserIdAsync(Guid userId);
 
-    Task<UserDto> GetUserByPasswordAsync(string password);
+    Task<UserDto> GetUserAsync(AuthDto authDto);
 
     Task<Guid> GetUserIdByLoginAsync(string login);
 }

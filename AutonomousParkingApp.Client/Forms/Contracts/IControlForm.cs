@@ -6,8 +6,8 @@ namespace AutonomousParkingApp.Client.Forms.Contracts
 {
     public interface IControlForm
     {
-        void SendContentForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm);
+        void InstanceForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm);
 
-        void ShowControlAndContentForm();
+        void ShowControlAndContentForm(object obj = null);
     }
 }

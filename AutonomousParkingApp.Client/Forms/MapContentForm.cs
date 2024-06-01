@@ -1,21 +1,31 @@
-﻿using AutonomousParkingApp.Client.Forms.Helpers;
+﻿using AutonomousParkingApp.Client.Forms.Contracts;
+using AutonomousParkingApp.Client.Forms.Helpers.Constants;
+using AutonomousParkingApp.Client.Models.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutonomousParkingApp.Client.Forms
 {
-    public partial class MapContentForm : Form
+    public partial class MapContentForm : Form, IMainContentForm
     {
         public MapContentForm()
         {
             InitializeComponent();
+        }
+
+        public void ChangeEnabledElementControl()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InstanceUser(UserDto user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsEnabledElementControl()
+        {
+            throw new NotImplementedException();
         }
 
         private void gMapControl_Load(object sender, EventArgs e)

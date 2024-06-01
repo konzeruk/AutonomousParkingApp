@@ -1,4 +1,5 @@
-﻿using AutonomousParkingApp.Authentication.Models.DTO;
+﻿using AutonomousParkingApp.Authentication.Exceptions;
+using AutonomousParkingApp.Authentication.Models.DTO;
 using AutonomousParkingApp.Authentication.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,43 +15,78 @@ namespace AutonomousParkingApp.Authentication.Controllers
             _authService = authService;
 
         [HttpPost("add-user")]
-        public async Task<ActionResult> AddUserAsync([FromBody] UserForAuthDto user)
+        public async Task<ActionResult> AddUserAsync([FromBody] RegDto user)
         {
-            await _authService.AddUserAsync(user);
+            try
+            {
+                await _authService.AddUserAsync(user);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (AuthException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
         [HttpPut("update-user")]
         public async Task<ActionResult> UpdateUserAsync([FromBody] UserDto user)
         {
-            await _authService.UpdateUserAsync(user);
+            try
+            {
+                await _authService.UpdateUserAsync(user);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (AuthException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
         [HttpGet("get-user/{userId}")]
         public async Task<ActionResult<UserDto>> GetUserByUserIdAsync([FromRoute] Guid userId)
         {
-            var result = await _authService.GetUserByUserIdAsync(userId);
+            try
+            {
+                var result = await _authService.GetUserByUserIdAsync(userId);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (AuthException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
-        [HttpGet("get-user-by-password/{password}")]
-        public async Task<ActionResult<UserDto>> GetUserByPasswordAsync([FromRoute] string password)
+        [HttpPost("get-user-by-login-password")]
+        public async Task<ActionResult<UserDto>> GetUserAsync([FromBody] AuthDto authDto)
         {
-            var result = await _authService.GetUserByPasswordAsync(password);
+            try
+            {
+                var result = await _authService.GetUserAsync(authDto);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (AuthException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
         [HttpGet("get-userId-by-login/{login}")]
         public async Task<ActionResult<Guid>> GetUserIdByLoginAsync([FromRoute] string login)
         {
-            var result = await _authService.GetUserIdByLoginAsync(login);
+            try
+            {
+                var result = await _authService.GetUserIdByLoginAsync(login);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (AuthException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
     }
 }

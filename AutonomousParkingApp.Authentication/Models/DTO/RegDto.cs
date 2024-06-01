@@ -1,6 +1,6 @@
 ﻿namespace AutonomousParkingApp.Authentication.Models.DTO;
 
-public class UserForAuthDto
+public class RegDto
 {
     public string Login { get; set; }
 

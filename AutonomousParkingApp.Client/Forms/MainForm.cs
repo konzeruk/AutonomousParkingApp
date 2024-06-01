@@ -1,15 +1,7 @@
 ﻿using AutonomousParkingApp.Client.Forms;
+using AutonomousParkingApp.Client.Forms.Helpers.Constants;
 using AutonomousParkingApp.Client.Forms.Helpers;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutonomousParkingApp.Client
@@ -33,7 +25,7 @@ namespace AutonomousParkingApp.Client
 
             var mainControlForm = LoadPanelForm<MainControlForm>(FormConstants.Control);
             var entryControlForm = LoadPanelForm<EntryControlForm>(FormConstants.Control);
-            entryControlForm.SendContentForms(new Dictionary<string, ActiveForm>
+            entryControlForm.InstanceForms(new Dictionary<string, ActiveForm>
             {
                 {
                     nameof(EntryContentForm),
@@ -51,7 +43,7 @@ namespace AutonomousParkingApp.Client
 
             entryControlForm.ShowControlAndContentForm();
 
-            mainControlForm.SendContentForms(new Dictionary<string, ActiveForm>
+            mainControlForm.InstanceForms(new Dictionary<string, ActiveForm>
             {
                 {
                     nameof(MapContentForm),

@@ -1,6 +1,7 @@
 ﻿using AutonomousParkingApp.Client.Forms.Contracts;
 using AutonomousParkingApp.Client.Forms.Extensions;
 using AutonomousParkingApp.Client.Forms.Helpers;
+using AutonomousParkingApp.Client.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,22 +25,30 @@ namespace AutonomousParkingApp.Client.Forms
             InitializeComponent();
         }
 
-        public void SendContentForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm)
+        public void InstanceForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm)
         {
             _contentForms = contentForms;
             _controlForm = controlForm;
         }
 
-        public void ShowControlAndContentForm()
+        public void ShowControlAndContentForm(object obj)
         {
             Show();
+
+            _contentForms[nameof(MyRoomContentForm)]
+                .ToMainContentForm()
+                .InstanceUser((UserDto)obj);
+
+            _contentForms[nameof(MyRoomContentForm)]
+                .ToMainContentForm()
+                .InstanceUser((UserDto)obj);
 
             _contentForms[nameof(MapContentForm)].ShowActiveForm();
         }
 
         private void bMyRoom_Click(object sender, EventArgs e)
         {
-            LaunchContentMyRoom();
+           LaunchContentMyRoom();
         }
 
         private void LaunchContentMyRoom()
@@ -57,6 +66,11 @@ namespace AutonomousParkingApp.Client.Forms
         {
             _contentForms[nameof(MyRoomContentForm)].CloseActiveForm();
             _contentForms[nameof(MapContentForm)].ShowActiveForm();
+
+            var myRoomContentForm = _contentForms[nameof(MyRoomContentForm)].ToMainContentForm();
+
+            if (myRoomContentForm.IsEnabledElementControl())
+                myRoomContentForm.ChangeEnabledElementControl();
         }
 
         private void bExit_Click(object sender, EventArgs e)

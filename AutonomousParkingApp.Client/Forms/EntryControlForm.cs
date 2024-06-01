@@ -19,25 +19,30 @@ namespace AutonomousParkingApp.Client.Forms
             InitializeComponent();
         }
 
-        public void SendContentForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm)
+        public void InstanceForms(Dictionary<string, ActiveForm> contentForms, IControlForm controlForm)
         {
             _contentForms = contentForms;
             _controlForm = controlForm;
         }
 
-        public void ShowControlAndContentForm()
+        public void ShowControlAndContentForm(object obj = null)
         {
             Show();
 
             _contentForms[nameof(EntryContentForm)].ShowActiveForm();
+
+            _contentForms[nameof(AutorizationContentForm)]
+                .ToContentForm()
+                .InstanceForms(_controlForm);
+
+            _contentForms[nameof(RegistrationContentForm)]
+                .ToContentForm()
+                .InstanceForms(_controlForm);
         }
 
-        private async void bAuth_Click(object sender, EventArgs e)
+        private void bAuth_Click(object sender, EventArgs e)
         {
             LaunchContentAuth();
-
-            if (await AuthAsync())
-                LaunchContolMain();
         }
 
         private void LaunchContentAuth()
@@ -48,12 +53,9 @@ namespace AutonomousParkingApp.Client.Forms
             _contentForms[nameof(AutorizationContentForm)].ShowActiveForm();
         }
 
-        private async void bReg_Click(object sender, EventArgs e)
+        private void bReg_Click(object sender, EventArgs e)
         {
             LaunchContentReg();
-
-            if(await RegistrationAsync())
-                LaunchContolMain();
         }
 
         private void LaunchContentReg()
@@ -62,16 +64,6 @@ namespace AutonomousParkingApp.Client.Forms
             _contentForms[nameof(AutorizationContentForm)].CloseActiveForm();
 
             _contentForms[nameof(RegistrationContentForm)].ShowActiveForm();
-        }
-
-        private Task<bool> RegistrationAsync()
-        {
-            return Task.FromResult(true);
-        }
-
-        private Task<bool> AuthAsync()
-        {
-            return Task.FromResult(true);
         }
 
         private void LaunchContolMain()

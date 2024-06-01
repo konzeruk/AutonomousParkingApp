@@ -1,4 +1,5 @@
-﻿using AutonomousParkingApp.Client.Forms.Helpers;
+﻿using AutonomousParkingApp.Client.Forms.Contracts;
+using AutonomousParkingApp.Client.Forms.Helpers;
 
 namespace AutonomousParkingApp.Client.Forms.Extensions
 {
@@ -21,5 +22,11 @@ namespace AutonomousParkingApp.Client.Forms.Extensions
                 activeForm.IsShow = false;
             }
         }
+
+        public static IEntryContentForm ToContentForm(this ActiveForm activeForm)
+            => (IEntryContentForm)activeForm.InitForm;
+
+        public static IMainContentForm ToMainContentForm(this ActiveForm activeForm)
+            => (IMainContentForm)activeForm.InitForm;
     }
 }

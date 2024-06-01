@@ -1,4 +1,5 @@
-﻿using AutonomousParkingApp.StorageCarNumbers.Models.DTO;
+﻿using AutonomousParkingApp.StorageCarNumbers.Exceptions;
+using AutonomousParkingApp.StorageCarNumbers.Models.DTO;
 using AutonomousParkingApp.StorageCarNumbers.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,33 +20,61 @@ namespace AutonomousParkingApp.StorageCarNumbers.Controllers
         [HttpGet("all-parking")]
         public async Task<ActionResult<ICollection<ParkingDto>>> GetAllParkingAsync()
         {
-            var result = await _storageCarNumbersService.GetAllParkingAsync();
+            try
+            {
+                var result = await _storageCarNumbersService.GetAllParkingAsync();
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (StorageCarNumbersException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
-        [HttpGet("price/{userId}")] 
+        [HttpGet("price/{userId}")]
         public async Task<ActionResult<PriceDto>> GetPriceByUserIdAsync(Guid userId)
         {
-            var result = await _storageCarNumbersService.GetPriceByUserIdAsync(userId);
+            try
+            {
+                var result = await _storageCarNumbersService.GetPriceByUserIdAsync(userId);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (StorageCarNumbersException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
         [HttpPost("add")]
         public async Task<ActionResult> AddReservationAsync([FromBody] ReservationDto reservation)
         {
-            await _storageCarNumbersService.AddReservationAsync(reservation);
+            try
+            {
+                await _storageCarNumbersService.AddReservationAsync(reservation);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (StorageCarNumbersException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
 
         [HttpDelete("delete/{userId}")]
         public async Task<ActionResult> DeleteReservationAsync(Guid userId)
         {
-            await _storageCarNumbersService.DeleteReservationAsync(userId);
+            try
+            {
+                await _storageCarNumbersService.DeleteReservationAsync(userId);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (StorageCarNumbersException ex)
+            {
+                return Problem(ex.Message, statusCode: ex.StatusCode);
+            }
         }
     }
 }

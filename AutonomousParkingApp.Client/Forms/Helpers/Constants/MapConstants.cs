@@ -1,4 +1,4 @@
-﻿namespace AutonomousParkingApp.Client.Forms.Helpers
+﻿namespace AutonomousParkingApp.Client.Forms.Helpers.Constants
 {
     public static class MapConstants
     {

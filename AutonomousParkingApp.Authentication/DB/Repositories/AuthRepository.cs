@@ -1,5 +1,6 @@
 ﻿using AutonomousParkingApp.Authentication.DB.Contexts;
 using AutonomousParkingApp.Authentication.DB.Models;
+using AutonomousParkingApp.Authentication.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace AutonomousParkingApp.Authentication.DB.Repositories;
@@ -31,11 +32,11 @@ public class AuthRepository
         await _authContext.Users
             .FirstOrDefaultAsync(x => x.Id == userId);
 
-    public async Task<UserEntity?> GetUserByPasswordAsync(string password) =>
+    public async Task<UserEntity?> GetUserAsync(string login, string password) =>
         await _authContext.Users
-            .FirstOrDefaultAsync(x => x.Password == password);
+            .FirstOrDefaultAsync(x => x.Login.Equals(login) && x.Password.Equals(password));
 
     public async Task<UserEntity?> GetUserByLoginAsync(string login) =>
         await _authContext.Users
-            .FirstOrDefaultAsync(x => x.Login == login);
+            .FirstOrDefaultAsync(x => x.Login.Equals(login));
 }

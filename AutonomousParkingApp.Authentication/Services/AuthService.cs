@@ -1,5 +1,4 @@
-﻿using AutonomousParkingApp.Authentication.DB.Models;
-using AutonomousParkingApp.Authentication.DB.Repositories;
+﻿using AutonomousParkingApp.Authentication.DB.Repositories;
 using AutonomousParkingApp.Authentication.Exceptions;
 using AutonomousParkingApp.Authentication.Extensions;
 using AutonomousParkingApp.Authentication.Models.DTO;
@@ -16,7 +15,7 @@ public class AuthService : IAuthService
         _authRepository = authRepository;
     }
 
-    public async Task AddUserAsync(UserForAuthDto user)
+    public async Task AddUserAsync(RegDto user)
     {
         var findUser = await _authRepository.GetUserByLoginAsync(user.Login);
 
@@ -33,7 +32,6 @@ public class AuthService : IAuthService
         if (findUser is null)
             throw new UserNotFoundException(new Dictionary<string, object> { { nameof(user), user } });
 
-        findUser.Login = user.Login;
         findUser.Name = user.Name;
         findUser.CarNumber = user.CarNumber;
         findUser.Phone = user.Phone;
@@ -52,14 +50,14 @@ public class AuthService : IAuthService
         return user.ToUserDto();
     }
 
-    public async Task<UserDto> GetUserByPasswordAsync(string password)
+    public async Task<UserDto> GetUserAsync(AuthDto authDto)
     {
-        var user = await _authRepository.GetUserByPasswordAsync(password);
+            var user = await _authRepository.GetUserAsync(authDto.Login, authDto.Password);
 
-        if (user is null)
-            throw new UserNotFoundException(new Dictionary<string, object> { { nameof(password), password } });
+            if (user is null)
+                throw new UserNotFoundException(new Dictionary<string, object> { { nameof(authDto), authDto } });
 
-        return user.ToUserDto();
+            return user.ToUserDto();
     }
 
     public async Task<Guid> GetUserIdByLoginAsync(string login)

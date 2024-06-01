@@ -25,7 +25,7 @@ public static class ConvertExtension
             Login = userDto.Login,
         };
 
-    public static UserEntity ToUserEntity(this UserForAuthDto authDto) =>
+    public static UserEntity ToUserEntity(this RegDto authDto) =>
         new UserEntity
         {
             Name = authDto.Name,
