@@ -65,15 +65,5 @@ namespace AutonomousParkingApp.Client.Forms
 
             _contentForms[nameof(RegistrationContentForm)].ShowActiveForm();
         }
-
-        private void LaunchContolMain()
-        {
-            _contentForms[nameof(RegistrationContentForm)].CloseActiveForm();
-            _contentForms[nameof(AutorizationContentForm)].CloseActiveForm();
-
-            _controlForm.ShowControlAndContentForm();
-
-            Hide();
-        }
     }
 }

@@ -16,7 +16,7 @@ public class ParkingEntity
 
     public int NumFreeSpaces { get; set; }
 
-    public int XCoord { get; set; }
+    public double XCoord { get; set; }
 
-    public int YCoord { get; set; }
+    public double YCoord { get; set; }
 }

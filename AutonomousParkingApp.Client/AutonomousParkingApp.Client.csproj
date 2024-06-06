@@ -167,6 +167,12 @@
     <Compile Include="Forms\RegistrationContentForm.Designer.cs">
       <DependentUpon>RegistrationContentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SelectTimeReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectTimeReservationForm.Designer.cs">
+      <DependentUpon>SelectTimeReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DTO\AuthDto.cs" />
     <Compile Include="Models\DTO\ImageDto.cs" />
     <Compile Include="Models\DTO\ParkingDto.cs" />
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrationContentForm.resx">
       <DependentUpon>RegistrationContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectTimeReservationForm.resx">
+      <DependentUpon>SelectTimeReservationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

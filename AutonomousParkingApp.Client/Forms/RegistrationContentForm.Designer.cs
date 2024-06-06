@@ -45,6 +45,7 @@
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxCardNumber = new System.Windows.Forms.TextBox();
+            this.openImageDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +150,7 @@
             this.bLoadCarNumber.TabIndex = 30;
             this.bLoadCarNumber.Text = "...";
             this.bLoadCarNumber.UseVisualStyleBackColor = true;
+            this.bLoadCarNumber.Click += new System.EventHandler(this.bLoadCarNumber_Click);
             // 
             // label1
             // 
@@ -207,6 +209,10 @@
             this.textBoxCardNumber.Size = new System.Drawing.Size(399, 22);
             this.textBoxCardNumber.TabIndex = 35;
             // 
+            // openImageDialog
+            // 
+            this.openImageDialog.FileName = "openFileDialog1";
+            // 
             // RegistrationContentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +262,6 @@
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxCardNumber;
+        private System.Windows.Forms.OpenFileDialog openImageDialog;
     }
 }

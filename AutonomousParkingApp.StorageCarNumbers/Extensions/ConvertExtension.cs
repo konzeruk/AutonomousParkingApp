@@ -8,9 +8,12 @@ public static class ConvertExtension
     public static ParkingDto ToParkingDto(this ParkingEntity parkingEntity) =>
         new ParkingDto
         {
+            ParkingId = parkingEntity.Id,
             Price = parkingEntity.Price,
             Address = parkingEntity.Address,
             NumFreeSpaces = parkingEntity.NumFreeSpaces,
+            XCoord = parkingEntity.XCoord,
+            YCoord = parkingEntity.YCoord,
         };
 
     public static ParkingEntity ToParkingEntity(this ParkingDto parkingDto) =>

@@ -4,12 +4,6 @@ using AutonomousParkingApp.Client.Forms.Helpers;
 using AutonomousParkingApp.Client.Models.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutonomousParkingApp.Client.Forms
@@ -39,7 +33,7 @@ namespace AutonomousParkingApp.Client.Forms
                 .ToMainContentForm()
                 .InstanceUser((UserDto)obj);
 
-            _contentForms[nameof(MyRoomContentForm)]
+            _contentForms[nameof(MapContentForm)]
                 .ToMainContentForm()
                 .InstanceUser((UserDto)obj);
 

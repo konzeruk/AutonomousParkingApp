@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using AutonomousParkingApp.Client.Forms.Helpers.Constants;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace AutonomousParkingApp.Client.Forms
 {
@@ -16,12 +18,16 @@ namespace AutonomousParkingApp.Client.Forms
         private IControlForm _mainContentForm;
 
         private readonly IAuthService _authService;
+        private readonly INumberRecognitionService _numberRecognitionService;
 
         public RegistrationContentForm()
         {
             InitializeComponent();
 
             _authService = new AuthService();
+            _numberRecognitionService = new NumberRecognitionService();
+
+            openImageDialog.Filter = "Image file (*.jpg)|*.jpg|*.jpeg|*.png";
         }
 
         public void InstanceForms(IControlForm mainContentForm)
@@ -89,5 +95,52 @@ namespace AutonomousParkingApp.Client.Forms
 
         private bool CheckEnterCardNumber(string cardNumber) =>
             Regex.IsMatch(cardNumber, FormConstants.RegexCardNumber);
+
+        private async void bLoadCarNumber_Click(object sender, EventArgs e)
+        {
+            if (openImageDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            var fileName = openImageDialog.FileName;
+
+            var bitmap = new Bitmap(fileName);
+
+            var image = BitmapConvertToArray(bitmap);
+
+            var number = await _numberRecognitionService.GetCarNumberAsync(new ImageDto { FileName = fileName });
+            
+            if(number == null)
+                return;
+
+            textBoxCarNumber.Text = number;
+        }
+
+        private byte[,] BitmapConvertToArray(Bitmap bitmap)
+        {
+            Rectangle rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+            BitmapData bmpData = bitmap.LockBits(rect, ImageLockMode.ReadOnly, bitmap.PixelFormat);
+            
+            IntPtr ptr = bmpData.Scan0;
+
+            int bytes = Math.Abs(bmpData.Stride) * bitmap.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            bitmap.UnlockBits(bmpData);
+
+            byte[,] result = new byte[bitmap.Height, bitmap.Width];
+
+            for (int i = 0; i < bitmap.Height; i++)
+            {
+                for (int j = 0; j < bitmap.Width; j++)
+                {
+                    int index = i * bmpData.Stride + j * 3;
+                    result[i, j] = rgbValues[index];
+                }
+            }
+
+            return result;
+        }
     }
 }
